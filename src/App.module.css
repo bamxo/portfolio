@@ -1,0 +1,15 @@
+.appContainer {
+  background-color: #121212; /* Dark mode background */
+  min-height: 100vh;
+  padding-top: 80px; /* Offset for fixed navbar */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
