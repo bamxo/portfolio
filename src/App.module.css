@@ -12,4 +12,6 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-width: 320px;
+  overflow-x: auto;
 }

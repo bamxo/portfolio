@@ -25,46 +25,76 @@ const Navbar = () => {
       '--nav-text-color',
       isDarkMode ? '#FFFFFF' : '#323466'
     );
+
+    // Set navbar border color dynamically
+    document.documentElement.style.setProperty(
+      '--nav-border-color',
+      isDarkMode ? 'rgba(255, 255, 255)' : 'rgba(18, 18, 18)'
+    );
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 
   return (
-    <nav className={styles.navbar}>
-      {/* Navigation Tabs */}
-      <img src={bamLogo} alt="Bam Logo" className={styles.logo} />
-
-      {/* Navigation Tabs */}
-      <div className={styles.navTabs}>
-        {tabs.map((tab) => (
-          <button
-            key={tab}
-            className={`${styles.navItem} ${
-              selectedTab === tab ? styles.selected : ''
-            }`}
-            onClick={() => setSelectedTab(tab)}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
-
-      {/* Dark/Light Mode Toggle */}
-      <div className={styles.toggleContainer} onClick={() => setIsDarkMode(!isDarkMode)}>
-        {/* Background Images (Crossfading Effect) */}
-        <img
-          src={isDarkMode ? darkToggleBG: lightToggleBG}
-          alt="Toggle Background"
-          className={styles.toggleBackground}
+    <>
+      <nav className={styles.navbar}>
+        {/* Logo */}
+        <img 
+          src={bamLogo} 
+          alt="Bam Logo" 
+          className={styles.logo} 
+          onClick={() => setSelectedTab('Home')}
         />
 
-        {/* Icon Images (Crossfading Effect) */}
-        <img
-          src={isDarkMode ? moonIcon : sunIcon}
-          alt="Toggle Icon"
-          className={`${styles.toggleIcon} ${isDarkMode ? styles.moon : styles.sun}`}
-        />
+        {/* Navigation Tabs (Desktop) */}
+        <div className={styles.navTabs}>
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              className={`${styles.navItem} ${
+                selectedTab === tab ? styles.selected : ''
+              }`}
+              onClick={() => setSelectedTab(tab)}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        {/* Dark/Light Mode Toggle */}
+        <div className={styles.toggleContainer} onClick={() => setIsDarkMode(!isDarkMode)}>
+          {/* Background Images (Crossfading Effect) */}
+          <img
+            src={isDarkMode ? darkToggleBG: lightToggleBG}
+            alt="Toggle Background"
+            className={styles.toggleBackground}
+          />
+
+          {/* Icon Images (Crossfading Effect) */}
+          <img
+            src={isDarkMode ? moonIcon : sunIcon}
+            alt="Toggle Icon"
+            className={`${styles.toggleIcon} ${isDarkMode ? styles.moon : styles.sun}`}
+          />
+        </div>
+      </nav>
+
+      {/* Mobile Navigation Footer */}
+      <div className={styles.mobileNav}>
+        <div className={styles.mobileNavTabs}>
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              className={`${styles.navItem} ${
+                selectedTab === tab ? styles.selected : ''
+              }`}
+              onClick={() => setSelectedTab(tab)}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
       </div>
-    </nav>
+    </>
   );
 };
 

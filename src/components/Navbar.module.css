@@ -3,6 +3,7 @@
 :root {
   --page-bg-color: #121212; /* Default Dark Mode */
   --nav-text-color: #FFFFFF; /* Default Navbar Text */
+  --nav-border-color: rgba(255, 255, 255, 0.1); /* Default Navbar Border */
 }
 
 /* Apply transition to body background */
@@ -16,7 +17,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  padding: 0.5rem 4rem 0.5rem 2rem; /* Add padding */
+  padding: 0.5rem 4rem 0.5rem 2rem;
   display: flex;
   align-items: center; /* Align logo and tabs */
   justify-content: space-between; /* Space between logo and tabs */
@@ -93,6 +94,17 @@ body {
   padding: 0.3rem 0;
   animation: slideDown 0.5s ease-out;
   position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Add hover effect for unselected items */
+.navItem:not(.selected):hover {
+  color: #6B7280;
+}
+
+/* Add hover effect for selected items */
+.navItem.selected:hover {
+  color: #E5E7EB;
 }
 
 .navItem:focus {
@@ -163,4 +175,66 @@ body {
 /* Remove fadeInUp animation from .navItem */
 .navbar .navItem {
   animation-fill-mode: forwards;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+    justify-content: space-between;
+  }
+
+  /* Adjust logo size for mobile */
+  .logo {
+    height: 80px;
+  }
+
+  /* Hide the nav tabs in the header for mobile */
+  .navTabs {
+    display: none;
+  }
+
+  /* Mobile Footer Navigation */
+  .mobileNav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.75rem 1rem;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--nav-border-color); 
+    display: flex;
+    justify-content: space-around;
+    z-index: 1000;
+    border-radius: 16px;
+  }
+
+  .mobileNavTabs {
+    display: flex;
+    gap: 0.1rem;
+    border-radius: 16px;
+    padding: 0.5rem;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .mobileNavTabs .navItem {
+    animation: none;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    opacity: 1;
+  }
+
+  .mobileNavTabs .navItem.selected::after {
+    bottom: -6px;
+    left: 25%;
+    right: 25%;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+  .mobileNav {
+    display: none;
+  }
 }
