@@ -207,6 +207,9 @@ body {
     justify-content: space-around;
     z-index: 1000;
     border-radius: 16px;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: slideUp 0.5s ease-out forwards;
   }
 
   .mobileNavTabs {
@@ -236,5 +239,16 @@ body {
 @media (min-width: 769px) {
   .mobileNav {
     display: none;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

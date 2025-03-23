@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.heroSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 0;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Poppins', sans-serif;
+}
+
+.heroContent {
+  width: 337px;
+}
+
+.greetingContainer {
+  margin-bottom: 1rem;
+}
+
+.greeting {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Add these theme-specific classes */
+.light .greeting {
+  /* color: #8F00FF; */
+  color: #CF9FFF;
+}
+
+.dark .greeting {
+  color: #CF9FFF;
+}
+
+.name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  white-space: nowrap;
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.titleWrapper {
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+.typingText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.typingText::after {
+  content: '|';
+  -webkit-text-fill-color: #FFFFFF;
+  animation: blink 1s infinite;
+  font-weight: 100;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+.socialLinks img {
+  width: 54px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.socialLinks a:hover img {
+  transform: translateY(-3px);
+}
+
+.profileImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: slideInFromRight 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.profileImage {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: 4px solid #CF9FFF;
+  box-shadow: rgba(207, 159, 255, 0.7) 0px 0px 80px -5px;
+}
+
+.profileImage::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #8b5cf6, #d946ef);
+  animation: glow 2s linear infinite;
+  z-index: -1;
+}
+
+.profileImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Add these keyframes for the fade-in-up animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .heroSection {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 1rem 5% 2rem 5%;
+    gap: 0;
+    top: 50px;
+  }
+
+  .profileImageContainer {
+    flex: 0;
+  }
+
+  .titleWrapper {
+    margin-bottom: 1rem;
+  }
+
+  .socialLinks {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .profileImage {
+    width: 225px;
+    height: 225px;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Add these theme-specific classes */
+.light .name {
+  background: #323466;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.light .typingText {
+  /* background: linear-gradient(90deg, #323466 0%, #8F00FF 100%); */
+  background: linear-gradient(90deg, #323466 0%, #CF9FFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .name {
+  background: #FFFFFF;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .typingText {
+  background: linear-gradient(90deg, #FFFFFF 0%, #CF9FFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

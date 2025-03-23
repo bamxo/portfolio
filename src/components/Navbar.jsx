@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import bamLogo from '../assets/bam.svg';
 import darkToggleBG from '../assets/darkToggleBG.svg';
@@ -7,11 +8,25 @@ import moonIcon from '../assets/moon.svg';
 import sunIcon from '../assets/sun.svg';
 
 const Navbar = () => {
-  const [selectedTab, setSelectedTab] = useState('Home');
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem('theme') === 'light' ? false : true
   );
   const tabs = ['Home', 'About', 'Experience', 'Projects'];
+
+  // Get the current tab from the URL path
+  const getCurrentTab = () => {
+    const path = location.pathname;
+    if (path === '/') return 'Home';
+    return path.substring(1).charAt(0).toUpperCase() + path.slice(2);
+  };
+
+  const [selectedTab, setSelectedTab] = useState(getCurrentTab());
+
+  useEffect(() => {
+    setSelectedTab(getCurrentTab());
+  }, [location]);
 
   useEffect(() => {
     // Apply CSS variable for smooth background transition
@@ -34,15 +49,28 @@ const Navbar = () => {
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 
+  const handleTabClick = (tab) => {
+    setSelectedTab(tab);
+    navigate(tab === 'Home' ? '/' : `/${tab.toLowerCase()}`);
+  };
+
+  const handleThemeToggle = () => {
+    const newTheme = !isDarkMode;
+    setIsDarkMode(newTheme);
+    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+    // Dispatch custom event
+    window.dispatchEvent(new Event('themeChange'));
+  };
+
   return (
     <>
       <nav className={styles.navbar}>
         {/* Logo */}
-        <img 
+        <img
           src={bamLogo} 
           alt="Bam Logo" 
           className={styles.logo} 
-          onClick={() => setSelectedTab('Home')}
+          onClick={() => handleTabClick('Home')}
         />
 
         {/* Navigation Tabs (Desktop) */}
@@ -53,7 +81,7 @@ const Navbar = () => {
               className={`${styles.navItem} ${
                 selectedTab === tab ? styles.selected : ''
               }`}
-              onClick={() => setSelectedTab(tab)}
+              onClick={() => handleTabClick(tab)}
             >
               {tab}
             </button>
@@ -61,7 +89,7 @@ const Navbar = () => {
         </div>
 
         {/* Dark/Light Mode Toggle */}
-        <div className={styles.toggleContainer} onClick={() => setIsDarkMode(!isDarkMode)}>
+        <div className={styles.toggleContainer} onClick={handleThemeToggle}>
           {/* Background Images (Crossfading Effect) */}
           <img
             src={isDarkMode ? darkToggleBG: lightToggleBG}
@@ -87,7 +115,7 @@ const Navbar = () => {
               className={`${styles.navItem} ${
                 selectedTab === tab ? styles.selected : ''
               }`}
-              onClick={() => setSelectedTab(tab)}
+              onClick={() => handleTabClick(tab)}
             >
               {tab}
             </button>
