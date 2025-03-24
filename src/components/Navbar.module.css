@@ -17,10 +17,10 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  padding: 0.5rem 4rem 0.5rem 2rem;
+  padding: 0.5rem 2rem;
   display: flex;
-  align-items: center; /* Align logo and tabs */
-  justify-content: space-between; /* Space between logo and tabs */
+  align-items: center;
+  justify-content: space-between;
   gap: 1rem;
   z-index: 1000;
   color: var(--nav-text-color);
@@ -29,21 +29,23 @@ body {
 
 /* Logo styling */
 .logo {
-  height: 120px; /* Adjust size */
+  height: 90px;
   width: auto;
   animation: slideDown 0.5s ease-out;
+  margin-left: 3rem;
 }
 
 /* Container for tabs */
 .navTabs {
-  margin-top: -30px;
+  margin-top: -15px;
   display: flex;
   gap: 3rem;
 }
 
 /* Toggle Switch Container */
 .toggleContainer {
-  margin-top: -30px;
+  margin-top: -15px;
+  margin-right: 3rem;
   position: relative;
   width: auto;
   height: 40px;

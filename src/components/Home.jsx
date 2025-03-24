@@ -42,8 +42,7 @@ const Home = () => {
         <div className={styles.titleWrapper}>
           <TypeAnimation
             sequence={[
-              'Machine Learning Engineer',
-              // 'Software Engineer',
+              'Software Engineer',
               3000,
               'Full Stack Developer',
               3000,
@@ -74,7 +73,6 @@ const Home = () => {
 
       <div className={styles.profileImageContainer}>
         <div className={styles.profileImage}>
-          {/* Replace with your actual image */}
           <img src={profileImage} alt="Landon Nguyen" />
         </div>
       </div>
