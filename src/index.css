@@ -3,9 +3,14 @@
   line-height: 1.5;
   font-weight: 400;
 
+  /* Theme variables */
+  --dark-bg: #121212;
+  --light-bg: #FAF9F6;
+  
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--dark-bg);
+  transition: background-color 0.5s ease-in-out, color 0.3s ease-in-out;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -57,7 +62,7 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: var(--light-bg);
   }
   a:hover {
     color: #747bff;
@@ -65,4 +70,15 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* Add theme-specific classes for JavaScript theme switching */
+:root[data-theme="light"] {
+  color: #213547;
+  background-color: var(--light-bg);
+}
+
+:root[data-theme="dark"] {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: var(--dark-bg);
 }

@@ -1,0 +1,44 @@
+{
+  "tools": [
+    {
+      "name": "Figma",
+      "icon": "/src/assets/Figma.svg",
+      "proficiency": "Intermediate"
+    },
+    {
+      "name": "Firebase",
+      "icon": "/src/assets/Firebase.svg",
+      "proficiency": "Beginner"
+    },
+    {
+      "name": "Docker",
+      "icon": "/src/assets/docker.svg",
+      "proficiency": "Intermediate"
+    },
+    {
+      "name": "GitHub",
+      "icon": "/src/assets/githubcard.svg",
+      "proficiency": "Intermediate"
+    },
+    {
+      "name": "Vite",
+      "icon": "/src/assets/Vitejs.svg",
+      "proficiency": "Intermediate"
+    },
+    {
+      "name": "Wireshark",
+      "icon": "/src/assets/Shark Dorsal.svg",
+      "proficiency": "Intermediate"
+    },
+    {
+      "name": "Xcode",
+      "icon": "/src/assets/Xcode.svg",
+      "proficiency": "Beginner"
+    },
+    {
+      "name": "VS Code",
+      "icon": "/src/assets/vscode.svg",
+      "proficiency": "Advanced"
+    }
+  ]
+} 

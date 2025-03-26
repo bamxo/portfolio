@@ -60,7 +60,9 @@ function Loader() {
 function Model() {
   const modelRef = useRef();
   const [opacity, setOpacity] = useState(0);
-  const gltf = useLoader(GLTFLoader, '/models/e939c35d-fbd7-4651-8029-2790c00539fa.glb');
+  const baseUrl = import.meta.env.MODE === 'development' ? '' : '/portfolio';
+  const modelPath = `${baseUrl}/models/e939c35d-fbd7-4651-8029-2790c00539fa.glb`;
+  const gltf = useLoader(GLTFLoader, modelPath);
 
   useEffect(() => {
     // Fade in animation

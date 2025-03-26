@@ -197,12 +197,75 @@
     height: 225px;
     margin-bottom: 1rem;
   }
+
+  .greeting {
+    font-size: 1.5rem;
+  }
+
+  .name {
+    font-size: 2rem;
+  }
+
+  .typingText {
+    font-size: 1.2rem;
+  }
+
+  .socialLinks img {
+    width: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .greeting {
+    font-size: 1.3rem;
+  }
+
+  .name {
+    font-size: 1.8rem;
+  }
+
+  .typingText {
+    font-size: 1rem;
+  }
+
+  .socialLinks img {
+    width: 40px;
+  }
+
+  .profileImage {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 360px) {
+  .greeting {
+    font-size: 1.1rem;
+  }
+
+  .name {
+    font-size: 1.5rem;
+  }
+
+  .typingText {
+    font-size: 0.9rem;
+  }
+
+  .socialLinks img {
+    width: 35px;
+  }
+
+  .profileImage {
+    width: 180px;
+    height: 180px;
+  }
 }
 
 /* Add these theme-specific classes */
 .light .name {
   background: #323466;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -210,19 +273,20 @@
   /* background: linear-gradient(90deg, #323466 0%, #8F00FF 100%); */
   background: linear-gradient(90deg, #323466 0%, #CF9FFF 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .dark .name {
   background: #FFFFFF;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .dark .typingText {
   background: linear-gradient(90deg, #FFFFFF 0%, #CF9FFF 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

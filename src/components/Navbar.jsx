@@ -29,11 +29,8 @@ const Navbar = () => {
   }, [location]);
 
   useEffect(() => {
-    // Apply CSS variable for smooth background transition
-    document.documentElement.style.setProperty(
-      '--page-bg-color',
-      isDarkMode ? '#121212' : '#FAF9F6'
-    );
+    // Set theme using data-theme attribute
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
 
     // Set navbar text color dynamically
     document.documentElement.style.setProperty(
@@ -64,7 +61,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={styles.navbar}>
+      <nav className={`${styles.navbar} ${selectedTab === 'Home' ? styles.transparent : ''}`}>
         {/* Logo */}
         <img
           src={bamLogo} 

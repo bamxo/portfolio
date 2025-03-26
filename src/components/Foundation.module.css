@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.container {
+    width: 90%;
+    max-width: 1256px;
+    margin: 0 auto;
+    padding: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.headerText {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    white-space: nowrap;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.headerText.light {
+    color: #323466;
+}
+
+.horizontalLine {
+    width: 100px;
+    height: 3px;
+    background-color: #CF9FFF;
+    border: none;
+    margin: 0;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.button {
+    width: 140px;
+    height: 50px;
+    background-color: #121212;
+    border: none;
+    color: #9CA3AF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    border-radius: 8px;
+    outline: none;
+    white-space: nowrap;
+}
+
+.button.light {
+    background-color: #FAF9F6;
+    color: #323466;
+}
+
+.button.selected {
+    background-color: rgba(207, 159, 255, 0.1);
+    color: #CF9FFF;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.button:active {
+    outline: none;
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .headerText {
+        font-size: 1.25rem;
+    }
+
+    .button {
+        font-size: 0.7rem;
+        transition: all 0.3s ease;
+    }
+
+    .button.selected {
+        font-size: 1rem;
+    }
+}
+
+.contentContainer {
+    margin-top: 2rem;
+    width: 100%;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+.contentWrapper {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    width: 100%;
+}
+
+.contentWrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contentWrapper.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+.techStackGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    padding-bottom: 100px;
+}
+
+.techCard {
+    width: 100%;
+    height: 82px;
+    border: 2px solid #CF9FFF;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1.5rem;
+    background-color: #121212;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.techCard.light {
+    background-color: #A09470;
+}
+
+.techCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(207, 159, 255, 0.2);
+}
+
+.techIcon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.techCard.light .techIcon {
+    filter: brightness(0.8);
+}
+
+.techCard:hover .techIcon {
+    transform: scale(1.2);
+}
+
+.techInfo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+}
+
+.techName {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    transition: transform 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.techCard:hover .techName {
+    transform: translateY(-100%);
+}
+
+.proficiencyText {
+    color: #CF9FFF;
+    font-size: 0.875rem;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(50%);
+    transition: all 0.3s ease;
+    visibility: hidden;
+}
+
+.techCard:hover .proficiencyText {
+    opacity: 1;
+    visibility: visible;
+}
+
+.progressBarContainer {
+    width: 120px;
+    height: 4px;
+    background-color: rgba(207, 159, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(150%);
+    transition: all 0.3s ease;
+    visibility: hidden;
+}
+
+.techCard:hover .progressBarContainer {
+    opacity: 1;
+    visibility: visible;
+}
+
+.progressBar {
+    height: 100%;
+    background-color: #CF9FFF;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.progressBar.beginner {
+    width: 33%;
+}
+
+.progressBar.intermediate {
+    width: 66%;
+}
+
+.progressBar.advanced {
+    width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .techStackGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .techCard {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .techStackGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .techCard {
+        height: 70px;
+        padding: 0 0.75rem;
+    }
+
+    .techIcon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .techName {
+        font-size: 1rem;
+    }
+
+    .proficiencyText {
+        font-size: 0.75rem;
+    }
+
+    .progressBarContainer {
+        width: 80px;
+    }
+}
+
+.courseContainer {
+    background-color: #1e1e1f;
+    border-radius: 20px;
+    width: fit-content;
+    max-width: 718px;
+    padding: 2rem 3rem 2rem 2rem;
+    transition: background-color 0.3s ease;
+    margin-bottom: 100px;
+}
+
+.courseContainer.light {
+    background-color: #A09470;
+}
+
+.courseList {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin: 0;
+    color: #CF9FFF;
+}
+
+.courseItem {
+    color: #FFFFFF;
+    font-size: 1.25rem;
+    margin-bottom: 1.2rem;
+    padding-left: 0.5rem;
+}
+
+.courseItem:last-child {
+    margin-bottom: 0;
+}
+
+.courseCode {
+    font-weight: 600;
+}
+
+.courseTitle {
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .courseContainer {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .courseItem {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .courseList {
+        padding-left: 1.2rem;
+    }
+} 

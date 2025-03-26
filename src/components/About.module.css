@@ -22,23 +22,41 @@
     }
 }
 
-.container {
-    background-color: #1E1E1F;
-    border-radius: 20px;
-    border: 1px solid #383838;
-    padding: 2rem;
-    width: fit-content;
-    max-width: 1256px;
-    height: 550px;
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
     position: absolute;
-    top: 50%;
+    top: 106px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+}
+
+.container {
+    border-radius: 20px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 1256px;
+    min-height: 550px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: 'Poppins', sans-serif;
-    margin-top: 0.5rem;
+    margin: 0;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark {
+    background-color: #1E1E1F;
+    border: 1px solid #383838;
+}
+
+.light {
+    background-color: #A09470;
+    border: 1px solid #A09470;
 }
 
 .headerContainer {
@@ -76,17 +94,19 @@
     align-items: flex-start;
     width: 100%;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .modelContainer {
     width: 450px;
     height: 450px;
     flex-shrink: 0;
+    margin: 0 auto;
 }
 
 .textContainer {
     flex: 1;
-    min-width: 700px;
+    min-width: 300px;
     width: 100%;
     max-width: 800px;
     color: white;
@@ -122,4 +142,65 @@
 
 .paragraph:nth-child(3) {
     animation-delay: 0.7s;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .contentContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modelContainer {
+        width: 350px;
+        height: 350px;
+    }
+
+    .textContainer {
+        margin-left: 0;
+        margin-top: 1rem;
+        min-width: unset;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    .headerText {
+        font-size: 1.25rem;
+    }
+
+    .modelContainer {
+        width: 300px;
+        height: 300px;
+    }
+
+    .paragraph {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    .modelContainer {
+        width: 250px;
+        height: 250px;
+    }
+
+    .headerText {
+        font-size: 1.1rem;
+    }
+
+    .paragraph {
+        font-size: 0.9rem;
+    }
 }
