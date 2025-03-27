@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './Foundation.module.css';
 import techStackData from '../data/techStack.json';
 import toolsData from '../data/tools.json';
+import { getAssetPath } from '../utils/assetPath';
 
 const Foundation = () => {
     const [selectedButton, setSelectedButton] = useState('Tech Stack');
@@ -52,7 +53,7 @@ const Foundation = () => {
                         {techStackData.techStack.map((tech, index) => (
                             <div key={index} className={`${styles.techCard} ${!isDarkMode ? styles.light : ''}`}>
                                 <img 
-                                    src={tech.icon} 
+                                    src={getAssetPath(tech.icon)} 
                                     alt={`${tech.name} icon`} 
                                     className={styles.techIcon}
                                 />
@@ -75,7 +76,7 @@ const Foundation = () => {
                         {toolsData.tools.map((tool, index) => (
                             <div key={index} className={`${styles.techCard} ${!isDarkMode ? styles.light : ''}`}>
                                 <img 
-                                    src={tool.icon} 
+                                    src={getAssetPath(tool.icon)} 
                                     alt={`${tool.name} icon`} 
                                     className={styles.techIcon}
                                 />

@@ -2,42 +2,42 @@
   "techStack": [
     {
       "name": "React",
-      "icon": "/src/assets/React.svg",
-      "proficiency": "Advanced"
+      "icon": "/assets/React.svg",
+      "proficiency": "Intermediate"
     },
     {
       "name": "React Native",
-      "icon": "/src/assets/React Native.svg",
+      "icon": "/assets/React Native.svg",
       "proficiency": "Beginner"
     },
     {
       "name": "SwiftUI",
-      "icon": "/src/assets/Swift.svg",
+      "icon": "/assets/Swift.svg",
       "proficiency": "Beginner"
     },
     {
       "name": "Node.js",
-      "icon": "/src/assets/node.svg",
+      "icon": "/assets/node.svg",
       "proficiency": "Intermediate"
     },
     {
       "name": "Tailwind",
-      "icon": "/src/assets/Tailwind_CSS_Logo 1.svg",
+      "icon": "/assets/Tailwind_CSS_Logo 1.svg",
       "proficiency": "Intermediate"
     },
     {
       "name": "OpenAPI",
-      "icon": "/src/assets/api.svg",
+      "icon": "/assets/api.svg",
       "proficiency": "Intermediate"
     },
     {
       "name": "PostgreSQL",
-      "icon": "/src/assets/Postgresql.svg",
+      "icon": "/assets/Postgresql.svg",
       "proficiency": "Intermediate"
     },
     {
       "name": "TensorFlow",
-      "icon": "/src/assets/tensor flow.svg",
+      "icon": "/assets/tensor flow.svg",
       "proficiency": "Intermediate"
     }
   ]
