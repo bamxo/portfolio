@@ -172,11 +172,15 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .heroSection {
+    justify-content: flex-end;
     flex-direction: column-reverse;
     text-align: center;
     padding: 1rem 5% 2rem 5%;
     gap: 0;
-    top: 50px;
+    top: 100px;
+    transform: translateX(-50%);
+    /* margin-bottom: 80px; */
+    min-height: calc(100vh - 300px);
   }
 
   .profileImageContainer {
@@ -184,22 +188,68 @@
   }
 
   .titleWrapper {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .socialLinks {
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
 
   .profileImage {
-    width: 225px;
-    height: 225px;
-    margin-bottom: 1rem;
+    width: 300px;
+    height: 300px;
+    margin-bottom: 2rem;
   }
 
   .greeting {
+    font-size: 2rem;
+  }
+
+  .name {
+    font-size: 2.5rem;
+  }
+
+  .typingText {
+    font-size: 1.7rem;
+  }
+
+  .socialLinks img {
+    width: 54px;
+  }
+}
+
+@media (max-width: 480px) {
+  .greeting {
+    font-size: 1.8rem;
+  }
+
+  .name {
+    font-size: 2.2rem;
+  }
+
+  .typingText {
     font-size: 1.5rem;
+  }
+
+  .socialLinks img {
+    width: 50px;
+  }
+
+  .profileImage {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 400px) {
+  .heroSection {
+    top: 100px;
+    transform: translateX(-50%);
+  }
+
+  .greeting {
+    font-size: 1.6rem;
   }
 
   .name {
@@ -207,57 +257,16 @@
   }
 
   .typingText {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .socialLinks img {
     width: 45px;
   }
-}
-
-@media (max-width: 480px) {
-  .greeting {
-    font-size: 1.3rem;
-  }
-
-  .name {
-    font-size: 1.8rem;
-  }
-
-  .typingText {
-    font-size: 1rem;
-  }
-
-  .socialLinks img {
-    width: 40px;
-  }
 
   .profileImage {
-    width: 200px;
-    height: 200px;
-  }
-}
-
-@media (max-width: 360px) {
-  .greeting {
-    font-size: 1.1rem;
-  }
-
-  .name {
-    font-size: 1.5rem;
-  }
-
-  .typingText {
-    font-size: 0.9rem;
-  }
-
-  .socialLinks img {
-    width: 35px;
-  }
-
-  .profileImage {
-    width: 180px;
-    height: 180px;
+    width: 250px;
+    height: 250px;
   }
 }
 

@@ -6,6 +6,10 @@ export default defineConfig(({ command }) => ({
   base: command === 'serve' ? '/' : '/portfolio/',
   plugins: [react()],
   publicDir: 'public',
+  server: {
+    host: '0.0.0.0',
+    port: 5173,
+  },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

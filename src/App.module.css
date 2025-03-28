@@ -1,7 +1,8 @@
 .appContainer {
   background-color: #121212; /* Dark mode background */
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding-top: 80px; /* Offset for fixed navbar */
+  overflow-y: auto;
 }
 
 * {
