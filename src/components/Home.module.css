@@ -66,9 +66,16 @@
   display: inline-block;
 }
 
+.light .typingText::after {
+  -webkit-text-fill-color: #121212;
+}
+
+.dark .typingText::after {
+  -webkit-text-fill-color: #FFFFFF;
+}
+
 .typingText::after {
   content: '|';
-  -webkit-text-fill-color: #FFFFFF;
   animation: blink 1s infinite;
   font-weight: 100;
 }

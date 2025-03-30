@@ -45,54 +45,35 @@ const Foundation = () => {
 
     const buttons = ['Tech Stack', 'Tools', 'Coursework'];
 
+    const renderTechGrid = (items) => (
+        <div className={styles.techStackGrid}>
+            {items.map((item, index) => (
+                <div key={index} className={`${styles.techCard} ${!isDarkMode ? styles.light : ''}`}>
+                    <img 
+                        src={getAssetPath(item.icon)} 
+                        alt={`${item.name} icon`} 
+                        className={styles.techIcon}
+                    />
+                    <div className={styles.techInfo}>
+                        <span className={styles.techName}>{item.name}</span>
+                        <span className={styles.proficiencyText}>{item.proficiency}</span>
+                        <div className={styles.progressBarContainer}>
+                            <div 
+                                className={`${styles.progressBar} ${styles[item.proficiency.toLowerCase()]}`}
+                            />
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    );
+
     const renderContent = (contentType) => {
         switch (contentType) {
             case 'Tech Stack':
-                return (
-                    <div className={styles.techStackGrid}>
-                        {techStackData.techStack.map((tech, index) => (
-                            <div key={index} className={`${styles.techCard} ${!isDarkMode ? styles.light : ''}`}>
-                                <img 
-                                    src={getAssetPath(tech.icon)} 
-                                    alt={`${tech.name} icon`} 
-                                    className={styles.techIcon}
-                                />
-                                <div className={styles.techInfo}>
-                                    <span className={styles.techName}>{tech.name}</span>
-                                    <span className={styles.proficiencyText}>{tech.proficiency}</span>
-                                    <div className={styles.progressBarContainer}>
-                                        <div 
-                                            className={`${styles.progressBar} ${styles[tech.proficiency.toLowerCase()]}`}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                );
+                return renderTechGrid(techStackData.techStack);
             case 'Tools':
-                return (
-                    <div className={styles.techStackGrid}>
-                        {toolsData.tools.map((tool, index) => (
-                            <div key={index} className={`${styles.techCard} ${!isDarkMode ? styles.light : ''}`}>
-                                <img 
-                                    src={getAssetPath(tool.icon)} 
-                                    alt={`${tool.name} icon`} 
-                                    className={styles.techIcon}
-                                />
-                                <div className={styles.techInfo}>
-                                    <span className={styles.techName}>{tool.name}</span>
-                                    <span className={styles.proficiencyText}>{tool.proficiency}</span>
-                                    <div className={styles.progressBarContainer}>
-                                        <div 
-                                            className={`${styles.progressBar} ${styles[tool.proficiency.toLowerCase()]}`}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                );
+                return renderTechGrid(toolsData.tools);
             case 'Coursework':
                 return (
                     <div className={`${styles.courseContainer} ${!isDarkMode ? styles.light : ''}`}>

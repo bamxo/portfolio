@@ -1,0 +1,35 @@
+{
+  "experiences": [
+    {
+      "company": "Shade of Hue, Ltd.",
+      "position": "AI Testing Course Developer",
+      "duration": "Nov 2024 - Jan 2025",
+      "description": [
+        "Created Python notebook exercises and lectures to teach AI testing methodologies, focusing on fairness, robustness, explainability, and scalability.",
+        "Applied tools like AI Fairness 360, EvidentlyAI, Foolbox, SHAP, MLflow, and JMeter for comprehensive AI model evaluation and monitoring.",
+        "Designed workflows for ethical AI testing and human-in-the-loop feedback using Hugging Face Transformers and custom annotation pipelines."
+      ],
+      "link": "github.com/bamxo/ai-testing-notebooks",
+      "logo": {
+        "dark": "/assets/soh-dark.png",
+        "light": "/assets/soh-light.png"
+      }
+    },
+    {
+      "company": "Haywork Global",
+      "position": "Front End Intern",
+      "duration": "July 2023 - Sep 2023",
+      "description": [
+        "Contributed to the successful launch of a corporate website, aligned with the company's requirements",
+        "Ensured the website's compliance with SEO best practices, resulting in improved search engine ranking",
+        "Improved website load time by 20% resulting in a 15% increase in user engagement.",
+        "Enhanced user engagement and communication by setting up a user-friendly \"Contact Us\" form, integrated with Mail SMTP for seamless communication"
+      ],
+      "link": "hayworkglobal.com",
+      "logo": {
+        "dark": "/assets/hg.png",
+        "light": "/assets/hg.png"
+      }
+    }
+  ]
+} 

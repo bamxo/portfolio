@@ -4,7 +4,7 @@ import styles from './Home.module.css';
 import githubIcon from '../assets/github.svg';
 import mailIcon from '../assets/Mail.svg';
 import linkedinIcon from '../assets/linkedin.svg';
-import profileImage from '../assets/profile.svg';
+import profileImage from '../assets/profile.png';
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(
