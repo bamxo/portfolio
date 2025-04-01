@@ -1,0 +1,39 @@
+{
+  "projects": [
+    {
+      "thumbnail": "/assets/nightbot.png",
+      "name": "Twitch Bot",
+      "description": "A real-time Twitch chat bot that lets users trade stocks via chat commands. Integrates with Robinhood API, supports buying/selling, and provides live feedback. Secure, multi-threaded, and interactive.",
+      "tech": "Python, IRC",
+      "link": "https://github.com/bamxo/Twitch-Stock-Trading-Bot"
+    },
+    {
+      "thumbnail": "/assets/chatkit.png",
+      "name": "Basic Chat Protocol",
+      "description": "A real-time chat program using Python socket programming. Supports multi-client communication, a client-server model, and a simple CLI. Implements half-duplex messaging over TCP connections.",
+      "tech": "Python",
+      "link": "https://github.com/bamxo/Chat-Program"
+    },
+    {
+      "thumbnail": "/assets/firewall.jpg",
+      "name": "Firewall Flooding Simulation",
+      "description": "A network security simulation using flooding techniques to test firewall performance. Supports packet filtering, access control, traffic monitoring, and topology configuration via a CLI.",
+      "tech": "Python, Mininet",
+      "link": "https://github.com/bamxo/Firewall-Flooding-Controller"
+    },
+    {
+      "thumbnail": "/assets/webcrawler.png",
+      "name": "Web Crawler",
+      "description": "A standalone program that recursively crawls internal web pages from a seed URL, storing content up to a specified depth. Includes error handling and efficient page management.",
+      "tech": "C",
+      "link": "https://github.com/bamxo/Web-Crawler"
+    },
+    {
+      "thumbnail": "/assets/alphawf.png",
+      "name": "alphaWild",
+      "description": "Early alpha of Wildin Foos, a procedurally generated survival game. Features terrain generation and player controllers. Future updates include bosses, crafting, multiplayer, and base building.",
+      "tech": "Unity3D, C#",
+      "link": "https://github.com/bamxo/AlphaWild"
+    }
+  ]
+} 

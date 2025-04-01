@@ -286,7 +286,6 @@
 }
 
 .light .typingText {
-  /* background: linear-gradient(90deg, #323466 0%, #8F00FF 100%); */
   background: linear-gradient(90deg, #323466 0%, #CF9FFF 100%);
   -webkit-background-clip: text;
   background-clip: text;

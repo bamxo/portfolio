@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import styles from './Experience.module.css';
 import experienceData from '../data/experience.json';
 import linkIcon from '../assets/link.svg';
+import { getAssetPath } from '../utils/assetPath';
 
 const Experience = () => {
   const [isDarkMode, setIsDarkMode] = useState(
@@ -177,7 +178,7 @@ const Experience = () => {
             {windowWidth > 480 && (
               <img 
                 ref={el => logoRefs.current[index] = el}
-                src={isDarkMode ? experience.logo.dark : experience.logo.light}
+                src={isDarkMode ? getAssetPath(experience.logo.dark) : getAssetPath(experience.logo.light)}
                 alt={`${experience.company} logo`} 
                 className={`${styles.logo} ${isLogoFading ? styles.fade : ''}`}
               />
@@ -205,7 +206,7 @@ const Experience = () => {
               {windowWidth <= 480 && (
                 <img 
                   ref={el => logoRefs.current[index] = el}
-                  src={isDarkMode ? experience.logo.dark : experience.logo.light}
+                  src={isDarkMode ? getAssetPath(experience.logo.dark) : getAssetPath(experience.logo.light)}
                   alt={`${experience.company} logo`} 
                   className={`${styles.logo} ${styles.mobile} ${isLogoFading ? styles.fade : ''}`}
                 />

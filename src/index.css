@@ -93,7 +93,7 @@ button:focus-visible {
 
 ::-webkit-scrollbar-thumb {
   background: #CF9FFF;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

@@ -1,8 +1,17 @@
 .appContainer {
-  background-color: #121212; /* Dark mode background */
-  /* min-height: 100vh; */
+  background-color: var(--dark-bg);
   padding-top: 80px; /* Offset for fixed navbar */
   overflow-y: auto;
+  transition: background-color 0.5s ease-in-out;
+}
+
+/* Add theme-specific styles */
+:root[data-theme="light"] .appContainer {
+  background-color: var(--light-bg);
+}
+
+:root[data-theme="dark"] .appContainer {
+  background-color: var(--dark-bg);
 }
 
 * {

@@ -115,7 +115,7 @@
 
 .cardContent {
   background-color: var(--card-bg-color);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   flex: 1;
   min-height: 300px;
   padding: 40px;
@@ -124,6 +124,12 @@
   overflow: hidden;
   opacity: 0;
   transform: translateY(50px);
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.15);
+}
+
+.cardContent:hover {
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
 }
 
 .cardContent.visible {
