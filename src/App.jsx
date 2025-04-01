@@ -4,12 +4,14 @@ import Home from './components/Home';
 import About from './components/About';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
+import ScrollToTop from './components/ScrollToTop';
 import styles from './App.module.css';
 
 function App() {
   return (
     <Router>
       <div className={styles.appContainer}>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
