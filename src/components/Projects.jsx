@@ -54,7 +54,7 @@ const Projects = () => {
                     className={styles.githubLink}
                   >
                     <img 
-                      src={getAssetPath(githubIcon)} 
+                      src={githubIcon} 
                       alt="GitHub Link"
                       className={styles.githubIcon}
                     />
