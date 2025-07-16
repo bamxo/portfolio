@@ -131,6 +131,10 @@
   overflow: clip;
 }
 
+.projectCard:first-child .thumbnail {
+  height: 90%;
+}
+
 .projectName {
   color: #ffffff;
   font-weight: 500;

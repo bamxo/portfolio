@@ -59,7 +59,9 @@ const Projects = () => {
                       className={styles.githubIcon}
                     />
                   </a>
-                  <span className={styles.tooltip}>View GitHub Repository</span>
+                  <span className={styles.tooltip}>
+                    {index === 0 ? "View Landing Page" : "View GitHub Repository"}
+                  </span>
                 </div>
               </div>
             </div>

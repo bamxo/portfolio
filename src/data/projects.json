@@ -1,6 +1,13 @@
 {
   "projects": [
     {
+      "thumbnail": "/assets/c2n_promo.png",
+      "name": "Canvas to Notion",
+      "description": "A browser extension that syncs assignments from Canvas directly into your Notion workspace. Automatically detects due dates, organizes tasks, and updates in real-time. Lightweight, secure, and fully automated.",
+      "tech": "TypeScript, Node.js",
+      "link": "https://canvastonotion.io/"
+    },
+    {
       "thumbnail": "/assets/nightbot.png",
       "name": "Twitch Bot",
       "description": "A real-time Twitch chat bot that lets users trade stocks via chat commands. Integrates with Robinhood API, supports buying/selling, and provides live feedback. Secure, multi-threaded, and interactive.",
