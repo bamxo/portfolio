@@ -1,6 +1,21 @@
 {
   "experiences": [
     {
+      "company": "Verix",
+      "position": "Software Engineer Intern",
+      "duration": "Jun 2025 - Present",
+      "description": [
+        "Developing and maintaining backend systems using Django (Python), contributing to the stability and scalability of internal tools",
+        "Optimizing search speed and performance for internal data analytics platforms",
+        "Writing clear, comprehensive documentation for the codebase and intern onboarding process"
+      ],
+      "link": "verix.io",
+      "logo": {
+        "dark": "/assets/verix-logo-dark.png",
+        "light": "/assets/verix-logo-light.png"
+      }
+    },
+    {
       "company": "Shade of Hue, Ltd.",
       "position": "AI Testing Course Developer",
       "duration": "Nov 2024 - Jan 2025",
