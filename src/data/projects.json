@@ -1,7 +1,14 @@
 {
   "projects": [
     {
-      "thumbnail": "/assets/c2n_promo.png",
+      "thumbnail": "/assets/grepthink_promo.svg",
+      "name": "Grepthink 2.0",
+      "description": "A modernized project management platform for UCSC’s CSE 115A course that helps professors oversee Scrum teams, track project progress, manage feedback, and streamline classroom collaboration.",
+      "tech": "TypeScript, Node.js, FastAPI",
+      "link": "https://grepthink2.com/"
+    },
+    {
+      "thumbnail": "/assets/c2n_promo.svg",
       "name": "Canvas to Notion",
       "description": "A browser extension that syncs assignments from Canvas directly into your Notion workspace. Automatically detects due dates, organizes tasks, and updates in real-time. Lightweight, secure, and fully automated.",
       "tech": "TypeScript, Node.js",

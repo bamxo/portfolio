@@ -60,7 +60,7 @@ const Projects = () => {
                     />
                   </a>
                   <span className={styles.tooltip}>
-                    {index === 0 ? "View Landing Page" : "View GitHub Repository"}
+                    {index === 0 || 1 ? "View Landing Page" : "View GitHub Repository"}
                   </span>
                 </div>
               </div>
