@@ -1,0 +1,26 @@
+name: Update User Counts
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-counts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch counts and write snapshot
+        run: |
+          GT=$(curl -sf https://api.grepthink2.com/api/stats/usercount | jq -r '.count // .' 2>/dev/null || echo 0)
+          C2N=$(curl -sf https://api.canvastonotion.io/api/usercount | jq -r '.count // .' 2>/dev/null || echo 0)
+          echo "{\"grepthink\": $GT, \"c2n\": $C2N, \"updatedAt\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" > src/data/userCounts.json
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/userCounts.json
+          git diff --staged --quiet || git commit -m "chore: update user counts snapshot"
+          git push

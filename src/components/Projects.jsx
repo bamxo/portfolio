@@ -1,28 +1,35 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './Projects.module.css';
 import projectsData from '../data/projects.json';
+import userCountsSnapshot from '../data/userCounts.json';
 import githubIcon from '../assets/githublink.svg';
 import { getAssetPath } from '../utils/assetPath';
+
+function getInitialCounts() {
+  try {
+    const cached = JSON.parse(localStorage.getItem('portfolio_user_counts') || 'null');
+    if (cached && typeof cached.grepthink === 'number') return cached;
+  } catch {}
+  return { grepthink: userCountsSnapshot.grepthink, c2n: userCountsSnapshot.c2n };
+}
 
 const Projects = () => {
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem('theme') === 'light' ? false : true
   );
-  const [grepthinkUsers, setGrepthinkUsers] = useState('x');
-  const [c2nUsers, setC2nUsers] = useState('x');
+
+  const initial = getInitialCounts();
+  const [grepthinkUsers, setGrepthinkUsers] = useState(initial.grepthink);
+  const [c2nUsers, setC2nUsers] = useState(initial.c2n);
+  const countsRef = useRef(initial);
 
   useEffect(() => {
     const handleThemeChange = () => {
       setIsDarkMode(localStorage.getItem('theme') === 'light' ? false : true);
     };
 
-    // Initial check
     handleThemeChange();
-
-    // Listen for storage changes
     window.addEventListener('storage', handleThemeChange);
-    
-    // Listen for custom theme change event
     window.addEventListener('themeChange', handleThemeChange);
 
     return () => {
@@ -34,11 +41,22 @@ const Projects = () => {
   useEffect(() => {
     fetch('https://api.grepthink2.com/api/stats/usercount')
       .then(res => res.json())
-      .then(data => setGrepthinkUsers(data.count ?? data))
+      .then(data => {
+        const count = data.count ?? data;
+        setGrepthinkUsers(count);
+        countsRef.current.grepthink = count;
+        localStorage.setItem('portfolio_user_counts', JSON.stringify(countsRef.current));
+      })
       .catch(() => {});
+
     fetch('https://api.canvastonotion.io/api/usercount')
       .then(res => res.json())
-      .then(data => setC2nUsers(data.count ?? data))
+      .then(data => {
+        const count = data.count ?? data;
+        setC2nUsers(count);
+        countsRef.current.c2n = count;
+        localStorage.setItem('portfolio_user_counts', JSON.stringify(countsRef.current));
+      })
       .catch(() => {});
   }, []);
 
@@ -49,13 +67,13 @@ const Projects = () => {
         <p className={`${styles.headerDescription} ${!isDarkMode ? styles.light : ''}`}>Explore the projects I've worked on so far</p>
         <div className={`${styles.userCountPill} ${!isDarkMode ? styles.light : ''}`}>
           <span className={styles.pillDot} />
-          x people use what I've built
+          {grepthinkUsers + c2nUsers} people use what I've built
         </div>
         <div className={styles.projectsGrid}>
           {projectsData.projects.map((project, index) => (
             <div key={index} className={`${styles.projectCard} ${!isDarkMode ? styles.light : ''}`}>
-              <img 
-                src={getAssetPath(project.thumbnail)} 
+              <img
+                src={getAssetPath(project.thumbnail)}
                 alt={project.name}
                 className={styles.thumbnail}
               />
@@ -69,14 +87,14 @@ const Projects = () => {
                   )}
                 </p>
                 <div className={styles.githubLinkContainer}>
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
+                  <a
+                    href={project.link}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className={styles.githubLink}
                   >
-                    <img 
-                      src={githubIcon} 
+                    <img
+                      src={githubIcon}
                       alt="GitHub Link"
                       className={styles.githubIcon}
                     />
