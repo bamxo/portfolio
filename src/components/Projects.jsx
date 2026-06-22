@@ -42,7 +42,7 @@ const Projects = () => {
     fetch('https://api.grepthink2.com/api/stats/usercount')
       .then(res => res.json())
       .then(data => {
-        const count = data.count ?? data;
+        const count = data.count ?? data.user_count ?? data;
         setGrepthinkUsers(count);
         countsRef.current.grepthink = count;
         localStorage.setItem('portfolio_user_counts', JSON.stringify(countsRef.current));
@@ -52,7 +52,7 @@ const Projects = () => {
     fetch('https://api.canvastonotion.io/api/usercount')
       .then(res => res.json())
       .then(data => {
-        const count = data.count ?? data;
+        const count = data.count ?? data.user_count ?? data;
         setC2nUsers(count);
         countsRef.current.c2n = count;
         localStorage.setItem('portfolio_user_counts', JSON.stringify(countsRef.current));
