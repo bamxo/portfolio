@@ -4,7 +4,7 @@
       "thumbnail": "/assets/grepthink_promo.svg",
       "name": "Grepthink 2.0",
       "description": "A modernized project management platform for UCSC’s CSE 115A course that helps professors oversee Scrum teams, track project progress, manage feedback, and streamline classroom collaboration.",
-      "tech": "TypeScript, Node.js, FastAPI",
+      "tech": "Node.js, FastAPI",
       "link": "https://grepthink2.com/"
     },
     {

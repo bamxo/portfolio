@@ -8,6 +8,8 @@ const Projects = () => {
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem('theme') === 'light' ? false : true
   );
+  const [grepthinkUsers, setGrepthinkUsers] = useState('x');
+  const [c2nUsers, setC2nUsers] = useState('x');
 
   useEffect(() => {
     const handleThemeChange = () => {
@@ -29,11 +31,26 @@ const Projects = () => {
     };
   }, []);
 
+  useEffect(() => {
+    fetch('https://api.grepthink2.com/api/stats/usercount')
+      .then(res => res.json())
+      .then(data => setGrepthinkUsers(data.count ?? data))
+      .catch(() => {});
+    fetch('https://api.canvastonotion.io/api/usercount')
+      .then(res => res.json())
+      .then(data => setC2nUsers(data.count ?? data))
+      .catch(() => {});
+  }, []);
+
   return (
     <div className={`${styles.container} ${!isDarkMode ? styles.light : ''}`}>
       <div className={styles.content}>
         <h1 className={`${styles.header} ${!isDarkMode ? styles.light : ''}`}>Past Projects</h1>
         <p className={`${styles.headerDescription} ${!isDarkMode ? styles.light : ''}`}>Explore the projects I've worked on so far</p>
+        <div className={`${styles.userCountPill} ${!isDarkMode ? styles.light : ''}`}>
+          <span className={styles.pillDot} />
+          x people use what I've built
+        </div>
         <div className={styles.projectsGrid}>
           {projectsData.projects.map((project, index) => (
             <div key={index} className={`${styles.projectCard} ${!isDarkMode ? styles.light : ''}`}>
@@ -45,7 +62,12 @@ const Projects = () => {
               <h2 className={styles.projectName}>{project.name}</h2>
               <p className={`${styles.projectDescription} ${!isDarkMode ? styles.light : ''}`}>{project.description}</p>
               <div className={styles.bottomContainer}>
-                <p className={`${styles.techStack} ${!isDarkMode ? styles.light : ''}`}>{project.tech}</p>
+                <p className={`${styles.techStack} ${!isDarkMode ? styles.light : ''}`}>
+                  {project.tech}
+                  {(index === 0 || index === 1) && (
+                    <span className={styles.userCountBadge}> • {index === 0 ? grepthinkUsers : c2nUsers} users</span>
+                  )}
+                </p>
                 <div className={styles.githubLinkContainer}>
                   <a 
                     href={project.link} 

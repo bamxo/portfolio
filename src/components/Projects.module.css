@@ -66,7 +66,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  margin-bottom: 2rem;
+  margin-bottom: 0.75rem;
   transition: background 0.3s ease;
   opacity: 0;
   animation: fadeInDown 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -77,6 +77,44 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.userCountPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #1e1e2e;
+  border: 1px solid #383860;
+  border-radius: 9999px;
+  padding: 6px 14px;
+  color: #ffffff;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeInDown 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.15s;
+}
+
+.userCountPill.light {
+  background-color: #e8e4f0;
+  border-color: #c4b8d8;
+  color: #323466;
+}
+
+.pillDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #CF9FFF;
+  flex-shrink: 0;
+}
+
+.userCountBadge {
+  color: #CF9FFF;
+}
+
+.techStack.light .userCountBadge {
+  color: #7A5C99;
 }
 
 .projectsGrid {
