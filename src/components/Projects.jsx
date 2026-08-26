@@ -1,16 +1,26 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Projects.module.css';
 import projectsData from '../data/projects.json';
-import userCountsSnapshot from '../data/userCounts.json';
 import githubIcon from '../assets/githublink.svg';
 import { getAssetPath } from '../utils/assetPath';
 
-function getInitialCounts() {
-  try {
-    const cached = JSON.parse(localStorage.getItem('portfolio_user_counts') || 'null');
-    if (cached && typeof cached.grepthink === 'number') return cached;
-  } catch {}
-  return { grepthink: userCountsSnapshot.grepthink, c2n: userCountsSnapshot.c2n };
+function parseCount(data) {
+  const count = data?.count ?? data?.user_count ?? data;
+  const n = Number(count);
+  return Number.isFinite(n) ? n : null;
+}
+
+const CountSpinner = () => (
+  <span className={styles.countSpinner} aria-hidden="true" />
+);
+
+function UserCountLabel({ count }) {
+  return (
+    <span className={styles.userCountBadge}>
+      {' • '}
+      {count != null ? `${count} users` : <CountSpinner />}
+    </span>
+  );
 }
 
 const Projects = () => {
@@ -18,10 +28,8 @@ const Projects = () => {
     localStorage.getItem('theme') === 'light' ? false : true
   );
 
-  const initial = getInitialCounts();
-  const [grepthinkUsers, setGrepthinkUsers] = useState(initial.grepthink);
-  const [c2nUsers, setC2nUsers] = useState(initial.c2n);
-  const countsRef = useRef(initial);
+  const [grepthinkUsers, setGrepthinkUsers] = useState(null);
+  const [c2nUsers, setC2nUsers] = useState(null);
 
   useEffect(() => {
     const handleThemeChange = () => {
@@ -41,24 +49,16 @@ const Projects = () => {
   useEffect(() => {
     fetch('https://api.grepthink2.com/api/stats/usercount')
       .then(res => res.json())
-      .then(data => {
-        const count = data.count ?? data.user_count ?? data;
-        setGrepthinkUsers(count);
-        countsRef.current.grepthink = count;
-        localStorage.setItem('portfolio_user_counts', JSON.stringify(countsRef.current));
-      })
+      .then(data => setGrepthinkUsers(parseCount(data)))
       .catch(() => {});
 
     fetch('https://api.canvastonotion.io/api/usercount')
       .then(res => res.json())
-      .then(data => {
-        const count = data.count ?? data.user_count ?? data;
-        setC2nUsers(count);
-        countsRef.current.c2n = count;
-        localStorage.setItem('portfolio_user_counts', JSON.stringify(countsRef.current));
-      })
+      .then(data => setC2nUsers(parseCount(data)))
       .catch(() => {});
   }, []);
+
+  const countsReady = grepthinkUsers != null && c2nUsers != null;
 
   return (
     <div className={`${styles.container} ${!isDarkMode ? styles.light : ''}`}>
@@ -67,7 +67,14 @@ const Projects = () => {
         <p className={`${styles.headerDescription} ${!isDarkMode ? styles.light : ''}`}>Explore the projects I've worked on so far</p>
         <div className={`${styles.userCountPill} ${!isDarkMode ? styles.light : ''}`}>
           <span className={styles.pillDot} />
-          {grepthinkUsers + c2nUsers} people use what I've built
+          {countsReady ? (
+            `${grepthinkUsers + c2nUsers} people use what I've built`
+          ) : (
+            <>
+              <CountSpinner />
+              people use what I've built
+            </>
+          )}
         </div>
         <div className={styles.projectsGrid}>
           {projectsData.projects.map((project, index) => (
@@ -83,7 +90,7 @@ const Projects = () => {
                 <p className={`${styles.techStack} ${!isDarkMode ? styles.light : ''}`}>
                   {project.tech}
                   {(index === 0 || index === 1) && (
-                    <span className={styles.userCountBadge}> • {index === 0 ? grepthinkUsers : c2nUsers} users</span>
+                    <UserCountLabel count={index === 0 ? grepthinkUsers : c2nUsers} />
                   )}
                 </p>
                 <div className={styles.githubLinkContainer}>

@@ -109,6 +109,30 @@
   flex-shrink: 0;
 }
 
+@keyframes countSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.countSpinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(207, 159, 255, 0.3);
+  border-top-color: #CF9FFF;
+  border-radius: 50%;
+  animation: countSpin 0.7s linear infinite;
+  flex-shrink: 0;
+  vertical-align: -1px;
+}
+
+.userCountBadge .countSpinner {
+  width: 10px;
+  height: 10px;
+  border-width: 1.5px;
+}
+
 .userCountBadge {
   color: #CF9FFF;
 }
