@@ -65,7 +65,7 @@ const Home = () => {
           <a href="mailto:landontqnguyen@gmail.com">
             <img src={mailIcon} alt="Email" />
           </a>
-          <a href="https://linkedin.com/in/landon-nguyen-678555238" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/landontqnguyen/" target="_blank" rel="noopener noreferrer">
             <img src={linkedinIcon} alt="LinkedIn" />
           </a>
         </div>
