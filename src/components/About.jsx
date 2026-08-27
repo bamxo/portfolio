@@ -41,13 +41,13 @@ const About = () => {
           </div>
           <div className={styles.textContainer}>
             <p className={styles.paragraph}>
-              Hi everyone! My name is Landon, and I'm a fourth-year Computer Science major at UC Santa Cruz. I have a strong passion for software development, with interests spanning web development, machine learning, and mobile development. I enjoy working on projects where I can see my code turn into something functional and meaningful.
+              Hi everyone! My name is Landon, and I'm a Computer Science graduate from UC Santa Cruz. I like finding a real, specific problem and building something that actually fixes it, which is the motivation behind all of my products. 
             </p>
             <p className={styles.paragraph}>
-              Beyond coding, I practice Taekwondo and serve as a Co-President for UCSC's Taekwondo Club. I love competing and pushing my limits, both in tournaments and in training. When I'm not working on projects or practicing taekwondo, you'll probably find me snowboarding, eating, or experimenting with new recipes in the kitchen.
+            Beyond building things, I practice Taekwondo and serve as Assistant Coach for Peak Performance CA. I love competing and the camaraderie that comes with the sport, in tournaments and in training. Outside of that, you'll find me snowboarding, eating, or experimenting with new recipes in the kitchen.
             </p>
             <p className={styles.paragraph}>
-              I like to create technology that is not only functional and efficient but also impactful and user-friendly. If you're interested in working together, feel free to reach out!
+            Right now I'm building Brim, a Shopify app that automates inventory reordering for small merchants, and before that I built GrepThink 2.0 and Canvas to Notion. I'm also open to Software Engineering or Product Management roles, so if you're interested in working together, feel free to reach out!
             </p>
           </div>
         </div>
